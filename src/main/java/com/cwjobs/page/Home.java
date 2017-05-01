@@ -1,18 +1,39 @@
 package com.cwjobs.page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-/**
- * Created by nirvana on 1/21/17.
- */
-public class Home {
-    private final WebDriver browser;
+public class Home extends AbstractPage<Home>{
 
     public Home(final WebDriver browser) {
-        this.browser = browser;
+        super(browser);
+        setImplementor(this);
     }
 
     public void load() {
         browser.navigate().to("http://www.cwjobs.co.uk");
     }
+
+    public void searchJob(String title, String location) {
+
+        forJob("Software Testing").in("London").search();
+    }
+
+    public Home forJob(String job) {
+        pageTools.writeTextInElementWithId(job, "keywords");
+        return this;
+    }
+
+    public Home in(String locationDescription) {
+        pageTools.writeTextInElementWithId(locationDescription, "location");
+
+        return this;
+    }
+
+    public Home search() {
+        pageTools.clickOnElementWithId("search-button");
+        return this;
+    }
 }
+
+
