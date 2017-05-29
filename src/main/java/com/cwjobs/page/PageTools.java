@@ -2,6 +2,7 @@ package com.cwjobs.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -51,9 +52,9 @@ public class PageTools {
 
     public void writeTextInElementWithId(String text, String id) {
         find.byId(id).clear();
-        browser
-                .findElement(By.id(id))
-                .sendKeys(text);
+        WebElement elemnt = browser
+                .findElement(By.id(id));
+        elemnt.sendKeys(text);
     }
 
     public void clickOnElementWithId(String id) {
