@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>selenium</groupId>
-    <artifactId>cwjobsit</artifactId>
+    <artifactId>cwjobs</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
@@ -18,12 +18,12 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>2.53.1</version>
+            <version>3.4.0</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-firefox-driver</artifactId>
-            <version>3.0.1</version>
+            <version>3.4.0</version>
         </dependency>
     </dependencies>
 
