@@ -1,6 +1,7 @@
-package com.cwjobs.page;
+package com.cwjobs.page.tools;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -34,7 +35,9 @@ public class PageTools {
     }
 
     public void clickOnTheFirstElement(By locator) {
-        find.elementsBy(locator).get(0).click();
+        WebElement element = find.elementsBy(locator).get(0);
+        scrollToElement(element);
+        element.click();
     }
 
     public void clickOnTheFirstElementWithClass(String className) {
@@ -52,8 +55,7 @@ public class PageTools {
 
     public void writeTextInElementWithId(String text, String id) {
         find.byId(id).clear();
-        WebElement elemnt = browser
-                .findElement(By.id(id));
+        WebElement elemnt = browser.findElement(By.id(id));
         elemnt.sendKeys(text);
     }
 
@@ -63,5 +65,17 @@ public class PageTools {
 
     public void clickOnElementWithClassName(String className) {
         find.byClassName(className).click();
+    }
+
+    public String valueOfElement(By locator) {
+        return find.by(locator).getAttribute("value");
+    }
+
+    //TODO: Is there a Java way to do this?
+    private void scrollToElement(WebElement el) {
+        if (browser instanceof JavascriptExecutor) {
+            ((JavascriptExecutor) browser)
+                    .executeScript("arguments[0].scrollIntoView(true);", el);
+        }
     }
 }

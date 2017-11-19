@@ -34,6 +34,14 @@ public class Home extends AbstractPage<Home>{
         pageTools.clickOnElementWithId("search-button");
         return this;
     }
+
+    public void clickOnRecruiting() {
+        pageTools.clickOnElementWithClassName("recruiter-link-tab");
+    }
+
+    public void clickOnAdvertiseButton() {
+        pageTools.clickOnElementWithClassName("recruiter-button");
+    }
 }
 
 

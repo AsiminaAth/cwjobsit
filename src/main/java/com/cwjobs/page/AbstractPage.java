@@ -1,10 +1,11 @@
 package com.cwjobs.page;
 
+import com.cwjobs.page.tools.PageTools;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public abstract class AbstractPage<T> {
-    private final By lastElementLocator = By.id("saved-job-toast");
+    private By lastElementLocator = By.id("saved-job-toast");
     protected final PageTools pageTools;
     private T implementor;
     protected WebDriver browser;
@@ -21,6 +22,14 @@ public abstract class AbstractPage<T> {
 
     protected void setImplementor(T implementor) {
         this.implementor = implementor;
+    }
+
+    protected void setLastElementLocator(By lastElementLocator) {
+        this.lastElementLocator = lastElementLocator;
+    }
+
+    public String title() {
+        return browser.getTitle();
     }
 }
 

@@ -1,29 +1,37 @@
 package com.cwjobs.site;
 
-import com.cwjobs.page.*;
+import com.cwjobs.page.ApplyJob;
+import com.cwjobs.page.JobDetails;
+import com.cwjobs.page.JobResults;
+import com.cwjobs.page.RecruiterPage;
+import com.cwjobs.page.tools.PageTools;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static org.junit.Assert.assertTrue;
 
 public class JobApplyIT extends AbstractPageIT {
     private JobResults jobResults = new JobResults(browser);
     private JobDetails jobDetails = new JobDetails(browser);
     private ApplyJob applyJob = new ApplyJob(browser);
     private PageTools pageTools = new PageTools(browser);
+    private RecruiterPage recruiterPage = new RecruiterPage(browser);
 
     @Test
     public void clickOnApply_ReturnsApplyPage() {
 
+        //given
         home.searchJob("Software Testing", "London");
-
         jobResults.showDetailsOfJob(0);
-
         jobDetails.waitUntilLoaded();
+
         //when
         jobDetails.apply();
+        applyJob.waitUntilLoaded();
 
         //then
-        applyJob.waitUntilLoaded();
+        assertTrue("Apply".equals(applyJob.title()));
+
     }
 
     @Test

@@ -5,7 +5,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,8 +15,8 @@ public class AbstractPageIT {
 
     @BeforeClass
     public static void setUp() {
-        System.setProperty("webdriver.gecko.driver","/home/nirvana/development/selenium/geckodriver");
-        browser = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver","/home/nirvana/development/selenium/chromedriver");
+        browser = new ChromeDriver();
         browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 

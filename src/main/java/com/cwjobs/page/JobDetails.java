@@ -20,6 +20,22 @@ public class JobDetails extends AbstractPage<JobDetails> {
     public void waitUntilJobWasSaved() {
         pageTools.waitUntilVisible(By.id("saved-job-toast"));
     }
+
+    public void nextJob() {
+        pageTools.clickOnElementWithId("nextJobButton");
+    }
+
+    public void previousJob() {
+        pageTools.clickOnElementWithId("previousJobButton");
+    }
+
+    public String getIdOfJob() {
+        return pageTools.valueOfElement(By.id("jobId"));
+    }
+
+    public void backToSearchResults() {
+        pageTools.clickOnElementWithId("backToResultsButton");
+    }
 }
 
 

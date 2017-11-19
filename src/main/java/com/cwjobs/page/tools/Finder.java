@@ -1,4 +1,4 @@
-package com.cwjobs.page;
+package com.cwjobs.page.tools;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

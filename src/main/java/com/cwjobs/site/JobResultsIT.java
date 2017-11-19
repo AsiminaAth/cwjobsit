@@ -1,10 +1,7 @@
 package com.cwjobs.site;
 
-import com.cwjobs.page.Home;
 import com.cwjobs.page.JobResults;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -20,4 +17,5 @@ public class JobResultsIT extends AbstractPageIT{
         //then
         assertNotNull(jobResults.getJobResults());
     }
+
 }
