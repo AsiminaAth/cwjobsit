@@ -11,9 +11,12 @@ public class RecruiterPage extends AbstractPage<RecruiterPage>{
     }
 
     public void clickOnRegisterButton() {
-        pageTools.clickOnElementWithClassName("user-register");
+        pageTools.clickOnElementWithClassName("signinbtn");
     }
 
+    public void clickOnAdvertiseNowButton() {
+        pageTools.clickOnLinkWithText("ADVERTISE NOW");
+    }
 }
 
 

@@ -67,6 +67,10 @@ public class PageTools {
         find.byClassName(className).click();
     }
 
+    public void clickOnLinkWithText(String text) {
+        find.linkByText(text).click();
+    }
+
     public String valueOfElement(By locator) {
         return find.by(locator).getAttribute("value");
     }

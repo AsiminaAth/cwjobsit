@@ -33,4 +33,8 @@ public class Finder {
     public List<WebElement> elementsBy(By locator) {
         return browser.findElements(locator);
     }
+
+    public WebElement linkByText(String text) {
+        return browser.findElement(By.linkText(text));
+    }
 }
