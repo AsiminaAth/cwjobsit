@@ -9,20 +9,22 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.concurrent.TimeUnit;
 
 public class HomePageStepDefinitions {
 
     private WebDriver browser;
     private PageTools pageTools;
+    private BrowserTools browserTools;
     private Home home;
+
+    public HomePageStepDefinitions(BrowserTools browserTools) {
+        this.browserTools = browserTools;
+    }
 
     @Before
     public void setup() {
-        browser = BrowserTools.startBrowser(this.getClass());
-
+        browser = browserTools.startBrowser(this.getClass());
         home = new Home(browser);
         pageTools = new PageTools(browser);
     }
@@ -50,6 +52,11 @@ public class HomePageStepDefinitions {
 
     @After
     public void tearDown() {
-        BrowserTools.quitBrowser(this.getClass());
+        browserTools.quitBrowser(this.getClass());
+    }
+
+    @When("^I click on advertise button$")
+    public void iClickOnAdvertiseButton() throws Throwable {
+        home.clickOnAdvertiseButton();
     }
 }

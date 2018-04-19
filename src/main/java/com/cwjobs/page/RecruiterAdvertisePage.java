@@ -7,7 +7,7 @@ public class RecruiterAdvertisePage extends AbstractPage<RecruiterAdvertisePage>
     public RecruiterAdvertisePage(WebDriver browser) {
         super(browser);
         setImplementor(this);
-        setLastElementLocator(By.className("footer-bottom"));
+        setLastElementLocator(By.className("footer-logos"));
     }
 
     public boolean isRegisterPanelShown() {

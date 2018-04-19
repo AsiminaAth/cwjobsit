@@ -10,13 +10,17 @@ import static org.junit.Assert.assertNotNull;
 
 public class JobResultsStepDefinitions {
 
+    private final BrowserTools browserTools;
     private WebDriver browser;
     private JobResults jobResults;
 
+    public JobResultsStepDefinitions(BrowserTools browserTools) {
+        this.browserTools = browserTools;
+    }
 
     @Before
     public void setup() {
-        browser = BrowserTools.startBrowser(this.getClass());
+        browser = browserTools.startBrowser(this.getClass());
 
         jobResults = new JobResults(browser);
     }
@@ -29,6 +33,6 @@ public class JobResultsStepDefinitions {
 
     @After
     public void tearDown() {
-        BrowserTools.quitBrowser(this.getClass());
+        browserTools.quitBrowser(this.getClass());
     }
 }

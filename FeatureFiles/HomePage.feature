@@ -6,3 +6,7 @@ Feature: Home page functionality
   Scenario: Click on recruiting unfolds recruiters panel
     When I click on recruiting
     Then Unfolds recruiters panel
+
+  Scenario: Click on advertise button goes to recruiter page
+    When I click on advertise button
+    Then Goes to recruiter's page

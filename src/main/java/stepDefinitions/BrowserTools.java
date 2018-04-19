@@ -5,11 +5,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-class BrowserTools {
-    private static WebDriver browser;
-    private static boolean initialized;
+public class BrowserTools {
+    private WebDriver browser;
+    private boolean initialized;
 
-    static WebDriver startBrowser(Class clazz) {
+
+    public WebDriver startBrowser(Class clazz) {
         if (!initialized) {
             System.setProperty("webdriver.chrome.driver","/home/nirvana/development/selenium/chromedriver");
             browser = new ChromeDriver();
@@ -19,7 +20,7 @@ class BrowserTools {
         return browser;
     }
 
-    static void quitBrowser(Class clazz) {
+    public void quitBrowser(Class clazz) {
             browser.quit();
             initialized = false;
     }
