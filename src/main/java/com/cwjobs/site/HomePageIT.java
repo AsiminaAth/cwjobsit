@@ -5,8 +5,6 @@ import com.cwjobs.page.tools.PageTools;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-import static org.junit.Assert.assertTrue;
-
 public class HomePageIT extends AbstractPageIT {
 
     private PageTools pageTools = new PageTools(browser);
@@ -36,10 +34,10 @@ public class HomePageIT extends AbstractPageIT {
         home.waitUntilLoaded();
 
         //when
-        home.clickOnAdvertiseButton();
-        recruiterPage.waitUntilLoaded();
+        home.clickOnAdvertiseNowButton();
 
         //then
-        assertTrue(recruiterPage.title().contains("Recruiter"));
+        recruiterPage.waitUntilTitleContains("Advertise a job");
+        recruiterPage.waitUntilLoaded();
     }
 }

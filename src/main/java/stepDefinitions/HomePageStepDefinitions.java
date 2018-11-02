@@ -57,6 +57,11 @@ public class HomePageStepDefinitions {
 
     @When("^I click on advertise button$")
     public void iClickOnAdvertiseButton() throws Throwable {
-        home.clickOnAdvertiseButton();
+        home.clickOnAdvertiseNowButton();
+    }
+
+    @Then("^I click on 'Advertise now' button$")
+    public void clickOnAdvertiseNowButton() {
+        home.clickOnAdvertiseNowButton();
     }
 }

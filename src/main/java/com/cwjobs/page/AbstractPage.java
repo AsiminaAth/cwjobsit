@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public abstract class AbstractPage<T> {
-    private By lastElementLocator = By.id("saved-job-toast");
+    private By lastElementLocator = By.className("tjglogo");
     protected final PageTools pageTools;
     private T implementor;
     protected WebDriver browser;
@@ -16,7 +16,7 @@ public abstract class AbstractPage<T> {
     }
 
     public T waitUntilLoaded() {
-        pageTools.waitUntilExists(lastElementLocator);
+        pageTools.waitUntilVisible(lastElementLocator);
         return implementor;
     }
 
@@ -30,6 +30,11 @@ public abstract class AbstractPage<T> {
 
     public String title() {
         return browser.getTitle();
+    }
+
+
+    public void waitUntilTitleContains(String title) {
+        pageTools.waitUntilTitleContains(title);
     }
 }
 

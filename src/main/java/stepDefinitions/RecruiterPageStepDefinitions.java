@@ -26,11 +26,18 @@ public class RecruiterPageStepDefinitions {
     @Then("^Goes to recruiter's page$")
     public void userIsInRecruiterPage() {
         recruiterPage.waitUntilLoaded();
-        assertTrue(recruiterPage.title().contains("Recruiter"));
+        assertTrue(recruiterPage.title().contains("Advertise"));
     }
 
     @Then("^I click on register button$")
     public void clickOnRegisterButton() {
         recruiterPage.clickOnRegisterButton();
+    }
+
+
+    @Then("^I click on 'BUY JOB ADS'$")
+    public void clickOnBuyJobAdsButton() {
+        recruiterPage.waitUntilLoaded();
+        recruiterPage.clickOnBuyJobAdsButton();
     }
 }

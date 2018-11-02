@@ -17,7 +17,7 @@ public class AbstractPageIT {
     public static void setUp() {
         System.setProperty("webdriver.chrome.driver","/home/nirvana/development/selenium/chromedriver");
         browser = new ChromeDriver();
-        browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Before

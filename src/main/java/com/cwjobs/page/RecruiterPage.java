@@ -7,15 +7,15 @@ public class RecruiterPage extends AbstractPage<RecruiterPage>{
     public RecruiterPage(final WebDriver browser) {
         super(browser);
         setImplementor(this);
-        setLastElementLocator(By.id("footer"));
+        setLastElementLocator(By.className("bottom-footer"));
     }
 
     public void clickOnRegisterButton() {
-        pageTools.clickOnElementWithClassName("signinbtn");
+        pageTools.clickOnElementWithClassName("nav__register-button");
     }
 
-    public void clickOnAdvertiseNowButton() {
-        pageTools.clickOnLinkWithText("ADVERTISE NOW");
+    public void clickOnBuyJobAdsButton() {
+        pageTools.clickOnLinkWithText("BUY JOB ADS");
     }
 }
 

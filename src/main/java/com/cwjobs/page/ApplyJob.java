@@ -2,14 +2,12 @@ package com.cwjobs.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ApplyJob extends AbstractPage<ApplyJob>{
     public ApplyJob(final WebDriver browser) {
         super(browser);
         setImplementor(this);
+        setLastElementLocator(By.className("tjg-logo"));
     }
 
     public ApplyJob forEmail(String email) {

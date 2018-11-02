@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import com.cwjobs.page.RecruiterAdvertisePage;
+import com.cwjobs.page.RecruiterSignInRegisterPage;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 
 public class AdvertiserPageStepDefinitions {
     private WebDriver browser;
-    private RecruiterAdvertisePage recruiterAdvertisePage;
+    private RecruiterSignInRegisterPage recruiterSignInRegisterPage;
     private BrowserTools browserTools;
 
     public AdvertiserPageStepDefinitions(BrowserTools browserTools) {
@@ -20,16 +20,21 @@ public class AdvertiserPageStepDefinitions {
     @Before
     public void setup() {
         browser = browserTools.startBrowser(this.getClass());
-        recruiterAdvertisePage = new RecruiterAdvertisePage(browser);
+        recruiterSignInRegisterPage = new RecruiterSignInRegisterPage(browser);
     }
 
     @Then("^Goes to Advertise page$")
     public void userIsInAdvertisePage() {
-        recruiterAdvertisePage.waitUntilLoaded();
+        recruiterSignInRegisterPage.waitUntilLoaded();
     }
 
     @Then("^Register panel is shown$")
     public void registerPanelIsShown() {
-        assertTrue(recruiterAdvertisePage.isRegisterPanelShown());
+        assertTrue(recruiterSignInRegisterPage.isRegisterPanelShown());
+    }
+
+    @Then("^Sign in panel is shown$")
+    public void singInPanelIsShown() {
+        assertTrue(recruiterSignInRegisterPage.isSignInPanelShown());
     }
 }

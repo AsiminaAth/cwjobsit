@@ -1,6 +1,5 @@
 package com.cwjobs.page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Home extends AbstractPage<Home>{
@@ -16,7 +15,7 @@ public class Home extends AbstractPage<Home>{
 
     public void searchJob(String title, String location) {
 
-        forJob("Software Testing").in("London").search();
+        forJob(title).in(location).search();
     }
 
     public Home forJob(String job) {
@@ -39,7 +38,7 @@ public class Home extends AbstractPage<Home>{
         pageTools.clickOnElementWithClassName("recruiter-link-tab");
     }
 
-    public void clickOnAdvertiseButton() {
+    public void clickOnAdvertiseNowButton() {
         pageTools.clickOnElementWithClassName("recruiter-button");
     }
 }

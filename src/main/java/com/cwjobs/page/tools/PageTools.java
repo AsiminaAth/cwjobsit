@@ -30,6 +30,10 @@ public class PageTools {
         waitUntil(ExpectedConditions.visibilityOf(find.by(locator)));
     }
 
+    public void waitUntilTitleContains(String title) {
+        waitUntil(ExpectedConditions.titleContains(title));
+    }
+
     public void waitUntilExists(By locator) {
         waitUntil(ExpectedConditions.presenceOfElementLocated(locator));
     }
@@ -44,7 +48,7 @@ public class PageTools {
         clickOnTheFirstElement(By.className(className));
     }
 
-    public int getOpenWondowsNumber() {
+    public int getOpenWindowsNumber() {
         return browser.getWindowHandles().size();
     }
 
@@ -55,8 +59,8 @@ public class PageTools {
 
     public void writeTextInElementWithId(String text, String id) {
         find.byId(id).clear();
-        WebElement elemnt = browser.findElement(By.id(id));
-        elemnt.sendKeys(text);
+        WebElement element = browser.findElement(By.id(id));
+        element.sendKeys(text);
     }
 
     public void clickOnElementWithId(String id) {
@@ -68,14 +72,28 @@ public class PageTools {
     }
 
     public void clickOnLinkWithText(String text) {
+        waitUntilVisible(By.linkText(text));
         find.linkByText(text).click();
     }
 
     public String valueOfElement(By locator) {
-        return find.by(locator).getAttribute("value");
+        return attributeOfElement(locator, "value");
     }
 
-    //TODO: Is there a Java way to do this?
+    public String attributeOfElement(By locator, String attribute) {
+        return find.by(locator).getAttribute(attribute);
+    }
+
+    public String textOfElement(By locator) {
+        return find.by(locator).getText();
+    }
+
+    public boolean findByClassName(String className) {
+        find.byClassName(className);
+
+        return true;
+    }
+
     private void scrollToElement(WebElement el) {
         if (browser instanceof JavascriptExecutor) {
             ((JavascriptExecutor) browser)

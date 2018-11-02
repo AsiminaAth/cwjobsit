@@ -1,8 +1,6 @@
 package com.cwjobs.site;
 
-import com.cwjobs.page.JobResults;
-import com.cwjobs.page.RecruiterPage;
-import com.cwjobs.page.RecruiterAdvertisePage;
+import com.cwjobs.page.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
@@ -10,37 +8,41 @@ import static org.junit.Assert.assertTrue;
 public class RecruiterPageIT extends AbstractPageIT{
     private JobResults jobResults = new JobResults(browser);
     private RecruiterPage recruiterPage = new RecruiterPage(browser);
-    private RecruiterAdvertisePage recruiterAdvertisePage = new RecruiterAdvertisePage(browser);
+    private RecruiterSignInRegisterPage recruiterSignInRegisterPage = new RecruiterSignInRegisterPage(browser);
+    private RecruiterBinPage recruiterBinPage = new RecruiterBinPage(browser);
+    private RecruiterJobAdBuyPage recruiterJobAdBuyPage = new RecruiterJobAdBuyPage(browser);
 
     @Test
-    public void clickOnRegister_OpensForm() {
+    public void clickOnRegister_OpensSignInRegisterForm() {
         //given
         home.load();
         home.waitUntilLoaded();
-        home.clickOnAdvertiseButton();
+        home.clickOnAdvertiseNowButton();
         recruiterPage.waitUntilLoaded();
 
         //when
         recruiterPage.clickOnRegisterButton();
-        recruiterAdvertisePage.waitUntilLoaded();
+        recruiterSignInRegisterPage.waitUntilLoaded();
 
         //then
-        assertTrue(recruiterAdvertisePage.isRegisterPanelShown());
+        assertTrue(recruiterSignInRegisterPage.isRegisterPanelShown());
+        assertTrue(recruiterSignInRegisterPage.isSignInPanelShown());
     }
 
     @Test
-    public void clickOnAdvertiseNowButton_goesToRecruiterAdvertiseJob() {
+    public void clickOnBuyNowTextLink_goesToRecruiterBinPage() throws InterruptedException {
         //given
         home.load();
         home.waitUntilLoaded();
-        home.clickOnAdvertiseButton();
+        home.clickOnAdvertiseNowButton();
         recruiterPage.waitUntilLoaded();
 
-        //when
-        recruiterPage.clickOnAdvertiseNowButton();
-        recruiterAdvertisePage.waitUntilLoaded();
+        recruiterPage.clickOnBuyJobAdsButton();
+        recruiterJobAdBuyPage.waitUntilLoaded();
 
-        //then
-        assertTrue(recruiterAdvertisePage.isPostAJobPage());
+        //when
+        recruiterJobAdBuyPage.clickOnBuyNowTextLink();
+
+        recruiterBinPage.waitUntilTitleContains("Shopping Basket");
     }
 }

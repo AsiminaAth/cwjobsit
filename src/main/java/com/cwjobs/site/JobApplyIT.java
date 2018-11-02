@@ -54,7 +54,7 @@ public class JobApplyIT extends AbstractPageIT {
         applyJob.waitUntilLoaded();
 
         //when
-        int windowsOpened = pageTools.getOpenWondowsNumber();
+        int windowsOpened = pageTools.getOpenWindowsNumber();
 
         applyJob.viewJobDescription();
 

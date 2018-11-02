@@ -25,6 +25,35 @@ public class JobResults extends AbstractPage<JobResults>{
     public String getIdOfJob(int index) {
         return browser.findElements(By.className("job")).get(index).getAttribute("id");
     }
+
+    public void goToNextResultsPage() {
+        pageTools.clickOnElementWithClassName("next");
+    }
+
+    public int activePageIndex() {
+        String xpath = "//ul[contains(@class, 'pagination')]/li/span[contains(@class, 'active')]";
+        return Integer.valueOf(pageTools.textOfElement(By.xpath(xpath)));
+    }
+
+    public void clickOnDropdownToggle() {
+        browser.findElement(By.className("dropdown-toggle")).click();
+    }
+
+    public boolean isToggleMenuOpen() {
+        String expanded = pageTools.attributeOfElement(By.className("dropdown-toggle"), "aria-expanded");
+        return "true".equals(expanded);
+    }
+
+    public void clickOnRegisterButton() {
+        pageTools.clickOnLinkWithText("Register");
+    }
+
+
+    public void signInJobSeeker() {
+        pageTools.clickOnElementWithId("navbar-desktop-signin-toggle");
+
+        pageTools.clickOnLinkWithText("Jobseeker sign in");
+    }
 }
 
 
